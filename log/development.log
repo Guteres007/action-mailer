@@ -1,0 +1,630 @@
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20180711100812)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "login" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180711100812_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180711100812"]]
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-07-11 10:08:26.229507"], ["updated_at", "2018-07-11 10:08:26.229507"]]
+  ↳ bin/rails:4
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Started GET "/" for 127.0.0.1 at 2018-07-11 12:11:11 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.2.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.2.0/lib/rails/templates/rails/welcome/index.html.erb (6.0ms)
+Completed 200 OK in 119ms (Views: 58.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-11 12:11:19 +0200
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 1053ms (Views: 1020.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-07-11 12:11:39 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (31.2ms)
+  Rendered users/new.html.erb within layouts/application (62.4ms)
+Completed 200 OK in 294ms (Views: 261.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-07-11 12:12:07 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3shKMMtNL/HmOqORSA9vT7lLiC4W0vRam3G9Ge3w+jcPzzx69nKLPGiOyjGMRoWVZKrtUss7PF35/jEEoWLppA==", "user"=>{"name"=>"Martin", "email"=>"andrasi.m007@gmail.com", "login"=>"Guteres"}, "commit"=>"Create User"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "login", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Martin"], ["email", "andrasi.m007@gmail.com"], ["login", "Guteres"], ["created_at", "2018-07-11 10:12:07.640580"], ["updated_at", "2018-07-11 10:12:07.640580"]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 20ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-07-11 12:12:07 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 248ms (Views: 202.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2018-07-11 12:16:03 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.0ms)
+  Rendered users/edit.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 276ms (Views: 234.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-11 12:16:17 +0200
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 234ms (Views: 206.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-07-11 12:16:22 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (15.6ms)
+  Rendered users/new.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 265ms (Views: 231.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-07-11 12:16:28 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZnUy7ZsxjMi2QMXygIGNkMWOhSrssB1W8Jk+YmgfAIa3ckSnpg4oBTj0rFJEyGdKGG/gVjFZ1VGSFrJ/JI0TFQ==", "user"=>{"name"=>"Martin", "email"=>"andrasi.m007@gmail.com", "login"=>"Guteres"}, "commit"=>"Create User"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "login", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Martin"], ["email", "andrasi.m007@gmail.com"], ["login", "Guteres"], ["created_at", "2018-07-11 10:16:29.048837"], ["updated_at", "2018-07-11 10:16:29.048837"]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+[ActiveJob] Enqueued ActionMailer::Parameterized::DeliveryJob (Job ID: 236dcb8a-2aad-48b8-b94a-7e3e86234110) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", {:user=>#<GlobalID:0x8b9f8a8 @uri=#<URI::GID gid://email/User/2>>}
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 680ms (ActiveRecord: 7.0ms)
+
+
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [236dcb8a-2aad-48b8-b94a-7e3e86234110] Performing ActionMailer::Parameterized::DeliveryJob (Job ID: 236dcb8a-2aad-48b8-b94a-7e3e86234110) from Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", {:user=>#<GlobalID:0x8b2fe10 @uri=#<URI::GID gid://email/User/2>>}
+Started GET "/users/2" for 127.0.0.1 at 2018-07-11 12:16:30 +0200
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [236dcb8a-2aad-48b8-b94a-7e3e86234110] UserMailer#welcome_email: processed outbound mail in 445.1ms
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [236dcb8a-2aad-48b8-b94a-7e3e86234110] Error performing ActionMailer::Parameterized::DeliveryJob (Job ID: 236dcb8a-2aad-48b8-b94a-7e3e86234110) from Async(mailers) in 536.11ms: ActionView::MissingTemplate (Missing template user_mailer/welcome_email with "mailer". Searched in:
+  * "user_mailer"
+):
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/base.rb:952:in `each_template'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/base.rb:940:in `collect_responses_from_templates'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/base.rb:925:in `collect_responses'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/base.rb:828:in `mail'
+C:/Users/andrasi/Desktop/email/app/mailers/user_mailer.rb:7:in `welcome_email'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.2.0/lib/abstract_controller/base.rb:194:in `process_action'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.2.0/lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:98:in `run_callbacks'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.2.0/lib/abstract_controller/callbacks.rb:41:in `process_action'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.2.0/lib/abstract_controller/base.rb:134:in `process'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/rescuable.rb:25:in `block in process'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/rescuable.rb:17:in `handle_exceptions'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/rescuable.rb:24:in `process'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionview-5.2.0/lib/action_view/rendering.rb:32:in `process'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/base.rb:607:in `block in process'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/notifications.rb:168:in `instrument'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/base.rb:606:in `process'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/parameterized.rb:134:in `block in processed_mailer'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/parameterized.rb:132:in `tap'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/parameterized.rb:132:in `processed_mailer'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/message_delivery.rb:113:in `deliver_now'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionmailer-5.2.0/lib/action_mailer/parameterized.rb:150:in `perform'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/execution.rb:39:in `block in perform_now'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/i18n-1.0.1/lib/i18n.rb:284:in `with_locale'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/notifications.rb:168:in `instrument'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/logging.rb:46:in `block in tag_logger'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/logging.rb:46:in `tag_logger'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/execution.rb:35:in `perform_now'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/execution.rb:24:in `block in execute'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/reloader.rb:73:in `block in wrap'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/reloader.rb:72:in `wrap'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/execution.rb:22:in `execute'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.2.0/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 206ms (Views: 177.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-11 12:17:33 +0200
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 231ms (Views: 207.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-07-11 12:17:36 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.0ms)
+  Rendered users/new.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 204ms (Views: 199.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-11 12:17:38 +0200
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 204ms (Views: 173.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-07-11 12:23:15 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 306ms (Views: 271.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-07-11 12:23:20 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Uu3li/CuEeagwYTAsxmcpCOb+Sy/SDdxqFLrdR2SV6aD6pPBzZG1Ky517WB3UHZ+/nqcUGKh/3bK3WdoUQBENQ==", "user"=>{"name"=>"Martin", "email"=>"andrasi.m007@gmail.com", "login"=>"andrasi"}, "commit"=>"Create User"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "login", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Martin"], ["email", "andrasi.m007@gmail.com"], ["login", "andrasi"], ["created_at", "2018-07-11 10:23:20.653839"], ["updated_at", "2018-07-11 10:23:20.653839"]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+[ActiveJob] Enqueued ActionMailer::Parameterized::DeliveryJob (Job ID: c419688a-15c8-44dd-9b11-bfce2179b46a) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", {:user=>#<GlobalID:0xd01a2b8 @uri=#<URI::GID gid://email/User/3>>}
+Redirected to http://localhost:3000/users/3
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 302 Found in 124ms (ActiveRecord: 11.0ms)
+
+
+  ↳ C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [c419688a-15c8-44dd-9b11-bfce2179b46a] Performing ActionMailer::Parameterized::DeliveryJob (Job ID: c419688a-15c8-44dd-9b11-bfce2179b46a) from Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", {:user=>#<GlobalID:0xd07b950 @uri=#<URI::GID gid://email/User/3>>}
+Started GET "/users/3" for 127.0.0.1 at 2018-07-11 12:23:21 +0200
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [c419688a-15c8-44dd-9b11-bfce2179b46a]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [c419688a-15c8-44dd-9b11-bfce2179b46a]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.0ms)
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 570ms (Views: 428.2ms | ActiveRecord: 1.0ms)
+
+
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [c419688a-15c8-44dd-9b11-bfce2179b46a] UserMailer#welcome_email: processed outbound mail in 1566.4ms
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [c419688a-15c8-44dd-9b11-bfce2179b46a] Sent mail to andrasi.m007@gmail.com (140.4ms)
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [c419688a-15c8-44dd-9b11-bfce2179b46a] Date: Wed, 11 Jul 2018 12:23:22 +0200
+From: notifications@example.com
+To: andrasi.m007@gmail.com
+Message-ID: <5b45da9a57d7e_122045cfa8c628a3@NBJM055.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, Martin</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: andrasi.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [c419688a-15c8-44dd-9b11-bfce2179b46a] Performed ActionMailer::Parameterized::DeliveryJob (Job ID: c419688a-15c8-44dd-9b11-bfce2179b46a) from Async(mailers) in 1723.37ms
+Started GET "/users" for 127.0.0.1 at 2018-07-11 12:23:57 +0200
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 253ms (Views: 225.2ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/1" for 127.0.0.1 at 2018-07-11 12:24:04 +0200
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+PWhfyxkyaNdY7mQXEShH5XoXQkzC5EIgX1hmkW6U4ceDa6hs5SLEOG9D2tNQZIAr5QQNfpiFAOtArVTFSqt0A==", "id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:59
+  [1m[36mUser Destroy (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/users_controller.rb:59
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:59
+Redirected to http://localhost:3000/users
+Completed 302 Found in 26ms (ActiveRecord: 13.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-11 12:24:04 +0200
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 221ms (Views: 194.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2018-07-11 12:29:36 +0200
+Processing by UsersController#index as JSON
+  Rendering users/index.json.jbuilder
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.json.jbuilder:1
+  Rendered users/_user.json.jbuilder (1.0ms)
+  Rendered users/_user.json.jbuilder (1.0ms)
+  Rendered users/index.json.jbuilder (340.0ms)
+Completed 200 OK in 479ms (Views: 450.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-07-11 12:29:44 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 200ms (Views: 186.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-11 12:29:46 +0200
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 183ms (Views: 182.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at 2018-07-11 12:29:47 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.0ms)
+  Rendered users/edit.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 237ms (Views: 230.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-11 12:29:50 +0200
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 203ms (Views: 172.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-07-11 12:35:16 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 280ms (Views: 266.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-07-11 12:35:23 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VonzDZLrY4RZslhU99IDSlw7bYHWcsa2UVBj4eTGHVCHjoVHr9THSdcGMfQzm+mQgdoI/QubDrEz3+/8qFQOww==", "user"=>{"name"=>"Martin", "email"=>"andrasi.m007@gmail.com", "login"=>"Asdsadsaa"}, "commit"=>"Create User"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "login", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Martin"], ["email", "andrasi.m007@gmail.com"], ["login", "Asdsadsaa"], ["created_at", "2018-07-11 10:35:23.733389"], ["updated_at", "2018-07-11 10:35:23.733389"]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+[ActiveJob] Enqueued ActionMailer::Parameterized::DeliveryJob (Job ID: 320b1a96-5389-4aa4-8207-762a1b1944c7) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", {:user=>#<GlobalID:0xf3eba58 @uri=#<URI::GID gid://email/User/4>>}
+Redirected to http://localhost:3000/users/4
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 302 Found in 108ms (ActiveRecord: 9.0ms)
+
+
+  ↳ C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [320b1a96-5389-4aa4-8207-762a1b1944c7] Performing ActionMailer::Parameterized::DeliveryJob (Job ID: 320b1a96-5389-4aa4-8207-762a1b1944c7) from Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", {:user=>#<GlobalID:0xf43b990 @uri=#<URI::GID gid://email/User/4>>}
+Started GET "/users/4" for 127.0.0.1 at 2018-07-11 12:35:24 +0200
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [320b1a96-5389-4aa4-8207-762a1b1944c7]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [320b1a96-5389-4aa4-8207-762a1b1944c7]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (1.0ms)
+Processing by UsersController#show as HTML
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [320b1a96-5389-4aa4-8207-762a1b1944c7] UserMailer#welcome_email: processed outbound mail in 537.1ms
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [320b1a96-5389-4aa4-8207-762a1b1944c7] Sent mail to andrasi.m007@gmail.com (197.0ms)
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [320b1a96-5389-4aa4-8207-762a1b1944c7] Date: Wed, 11 Jul 2018 12:35:24 +0200
+From: notifications@example.com
+To: andrasi.m007@gmail.com
+Message-ID: <5b45dd6c5ce25_122045cfa8c629f5@NBJM055.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, Martin</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: Asdsadsaa.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [320b1a96-5389-4aa4-8207-762a1b1944c7] Performed ActionMailer::Parameterized::DeliveryJob (Job ID: 320b1a96-5389-4aa4-8207-762a1b1944c7) from Async(mailers) in 866.09ms
+Completed 200 OK in 422ms (Views: 387.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-11 12:38:46 +0200
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 184ms (Views: 185.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-07-11 12:40:49 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.0ms)
+  Rendered users/new.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 249ms (Views: 221.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-07-11 12:40:57 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a0DQor5nrSal2lY+savCHSm0x8zWMQ90DIMOWx4d0Ky6R6bog1gJ6ytuP5514ijH9FWisAvYx3NuDIJGUo/DPw==", "user"=>{"name"=>"Martin", "email"=>"andrasi.m007@gmail.com", "login"=>"Guteres007"}, "commit"=>"Create User"}
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "login", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Martin"], ["email", "andrasi.m007@gmail.com"], ["login", "Guteres007"], ["created_at", "2018-07-11 10:40:57.790055"], ["updated_at", "2018-07-11 10:40:57.790055"]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+[ActiveJob] Enqueued ActionMailer::Parameterized::DeliveryJob (Job ID: a185358e-fb8c-4a5a-8322-27caa723361d) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", {:user=>#<GlobalID:0xfb044c8 @uri=#<URI::GID gid://email/User/5>>}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/5
+  ↳ C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 302 Found in 107ms (ActiveRecord: 8.0ms)
+
+
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a185358e-fb8c-4a5a-8322-27caa723361d] Performing ActionMailer::Parameterized::DeliveryJob (Job ID: a185358e-fb8c-4a5a-8322-27caa723361d) from Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", {:user=>#<GlobalID:0xfb36868 @uri=#<URI::GID gid://email/User/5>>}
+Started GET "/users/5" for 127.0.0.1 at 2018-07-11 12:40:58 +0200
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a185358e-fb8c-4a5a-8322-27caa723361d]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a185358e-fb8c-4a5a-8322-27caa723361d]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.0ms)
+Processing by UsersController#show as HTML
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a185358e-fb8c-4a5a-8322-27caa723361d] UserMailer#welcome_email: processed outbound mail in 526.1ms
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a185358e-fb8c-4a5a-8322-27caa723361d] Sent mail to andrasi.m007@gmail.com (173.0ms)
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a185358e-fb8c-4a5a-8322-27caa723361d] Date: Wed, 11 Jul 2018 12:40:58 +0200
+From: notifications@example.com
+To: andrasi.m007@gmail.com
+Message-ID: <5b45deba674cf_122045cfa8c63073@NBJM055.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+    <h1>Welcome to example.com, Martin</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: Guteres007.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a185358e-fb8c-4a5a-8322-27caa723361d] Performed ActionMailer::Parameterized::DeliveryJob (Job ID: a185358e-fb8c-4a5a-8322-27caa723361d) from Async(mailers) in 706.07ms
+Completed 200 OK in 398ms (Views: 344.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-11 12:41:21 +0200
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 222ms (Views: 195.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-07-11 12:42:08 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (5.0ms)
+  Rendered users/new.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 292ms (Views: 261.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-07-11 12:42:13 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6sQTVBpOkZDbMgIqjq3EclB4AIIOJGiYJ59TiNKsXW07w2UeJ3E1XVWGa4pK5C6ojZll/tPNoJ9FEN+Vnj5O/g==", "user"=>{"name"=>"Martin", "email"=>"andrasi.m007@gmail.com", "login"=>"Asdsadsaa"}, "commit"=>"Create User"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "login", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Martin"], ["email", "andrasi.m007@gmail.com"], ["login", "Asdsadsaa"], ["created_at", "2018-07-11 10:42:13.254829"], ["updated_at", "2018-07-11 10:42:13.254829"]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+[ActiveJob] Enqueued ActionMailer::Parameterized::DeliveryJob (Job ID: a65e4315-4a50-4e56-828c-c165611c9417) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", {:user=>#<GlobalID:0xe3ac3a8 @uri=#<URI::GID gid://email/User/6>>}
+Redirected to http://localhost:3000/users/6
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 302 Found in 111ms (ActiveRecord: 7.0ms)
+
+
+  ↳ C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a65e4315-4a50-4e56-828c-c165611c9417] Performing ActionMailer::Parameterized::DeliveryJob (Job ID: a65e4315-4a50-4e56-828c-c165611c9417) from Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", {:user=>#<GlobalID:0xe37edf0 @uri=#<URI::GID gid://email/User/6>>}
+Started GET "/users/6" for 127.0.0.1 at 2018-07-11 12:42:13 +0200
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a65e4315-4a50-4e56-828c-c165611c9417]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+Processing by UsersController#show as HTML
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a65e4315-4a50-4e56-828c-c165611c9417]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.0ms)
+  Parameters: {"id"=>"6"}
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a65e4315-4a50-4e56-828c-c165611c9417] UserMailer#welcome_email: processed outbound mail in 554.1ms
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a65e4315-4a50-4e56-828c-c165611c9417] Sent mail to andrasi.m007@gmail.com (175.0ms)
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a65e4315-4a50-4e56-828c-c165611c9417] Date: Wed, 11 Jul 2018 12:42:13 +0200
+From: notifications@example.com
+To: andrasi.m007@gmail.com
+Message-ID: <5b45df05e24b0_122045cfa8c631f9@NBJM055.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, Martin</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: Asdsadsaa.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [a65e4315-4a50-4e56-828c-c165611c9417] Performed ActionMailer::Parameterized::DeliveryJob (Job ID: a65e4315-4a50-4e56-828c-c165611c9417) from Async(mailers) in 740.07ms
+Completed 200 OK in 359ms (Views: 321.6ms | ActiveRecord: 0.0ms)
+
+
